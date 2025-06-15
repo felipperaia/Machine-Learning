@@ -7,12 +7,17 @@ import random
 import pickle
 import pandas as pd
 import numpy as np
+import os  
+from dotenv import load_dotenv  # Adicionado para carregar o .env
 
 app = Flask(__name__)
 CORS(app)
 
-# MongoDB Connection
-MONGO_URI = "mongodb://localhost:27017/"
+# Carrega variáveis do arquivo .env
+load_dotenv()
+
+# MongoDB Connection (atualizado)
+MONGO_URI = os.getenv("MONGO_URI")  # Lê do arquivo .env
 client = MongoClient(MONGO_URI)
 db = client["crimes_db"]
 colecao = db["crimes"]
