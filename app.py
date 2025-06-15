@@ -19,7 +19,7 @@ load_dotenv()
 # MongoDB Connection (atualizado)
 MONGO_URI = os.getenv("MONGO_URI")  # Lê do arquivo .env
 client = MongoClient(MONGO_URI)
-db = client["crimes_db"]
+db = client["crimes"]
 colecao = db["crimes"]
 
 # Carrega pipeline + label encoder salvos
