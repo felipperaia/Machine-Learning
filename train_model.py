@@ -5,9 +5,13 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 import pickle
+from dotenv import load_dotenv
 
-# 1. Conectar no MongoDB e puxar dados
-client = MongoClient("mongodb://localhost:27017/")
+# Carrega variáveis do arquivo .env
+load_dotenv()
+
+# MongoDB Connection (atualizado)
+MONGO_URI = os.getenv("MONGO_URI")  # Lê do arquivo .env
 db = client["crimes_db"]
 colecao = db["crimes"]
 
